@@ -1,0 +1,9 @@
+D:/trash/lab/timp/timp/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/timp.dir
+D:/trash/lab/timp/timp/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+D:/trash/lab/timp/timp/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+D:/trash/lab/timp/timp/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+D:/trash/lab/timp/timp/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/install.dir
+D:/trash/lab/timp/timp/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+D:/trash/lab/timp/timp/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+D:/trash/lab/timp/timp/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/timp_autogen_timestamp_deps.dir
+D:/trash/lab/timp/timp/build/Desktop_Qt_6_8_2_MinGW_64_bit-Debug/CMakeFiles/timp_autogen.dir
