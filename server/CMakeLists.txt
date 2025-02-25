@@ -19,6 +19,8 @@ set(SOURCES
         src/main.cpp
         src/server/server.cpp
         src/server/server.h
+        src/server/command_handler.cpp
+        src/server/command_handler.h
         src/database/database.cpp
         src/database/database.h
 )

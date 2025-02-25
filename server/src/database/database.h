@@ -27,6 +27,10 @@ public:
 
     static bool checkCredentials(const QString &username, const QString &password);
 
+    static bool saveMessage(const QString &sender, const QString &content);
+
+    static QList<QVariantMap> getRecentMessages(int limit = 50);
+
 private:
     explicit Database(QObject *parent = nullptr);
 

@@ -1,4 +1,8 @@
 #include "server.h"
+
+#include <QJsonArray>
+
+#include "command_handler.h"
 #include "database/database.h"
 
 #include <QJsonDocument>
@@ -6,7 +10,13 @@
 
 
 Server::Server(QObject *parent) : QObject(parent), server(new QTcpServer(this)) {
+    commandHandler = new CommandHandler(this);
 }
+
+Server::~Server() {
+    delete commandHandler;
+}
+
 
 bool Server::startServer(const quint16 port) const {
     if (!server->listen(QHostAddress::Any, port)) {
@@ -27,82 +37,107 @@ void Server::handleNewConnection() {
     qDebug() << "new client connected: " << socket->peerAddress().toString();
 }
 
-void Server::handleReadyRead() {
+void Server::handleReadyRead() const {
     const auto socket = qobject_cast<QTcpSocket *>(sender());
     if (!socket) return;
 
-    const QByteArray jsonData = socket->readAll();
+    while (socket->canReadLine()) {
+        const QByteArray jsonData = socket->readLine().trimmed();
+        qDebug() << "got data from client:" << jsonData;
 
-    // trying to parse json
-    const QJsonDocument doc = QJsonDocument::fromJson(jsonData);
-    if (doc.isNull()) {
-        qDebug() << "failed to read json data";
-        return;
+        const QJsonDocument doc = QJsonDocument::fromJson(jsonData);
+        if (doc.isNull()) {
+            qDebug() << "failed to parse json";
+            continue;
+        }
+
+        const QJsonObject json = doc.object();
+
+        commandHandler->processCommand(socket, json);
     }
-
-    qDebug() << "received data from client" << jsonData;
-
-    const QJsonObject json = doc.object();
-    const auto command = json["command"].toString();
-
-    CommandResponse response;
-    if (command == "login") {
-        response = handleLoginCommand(socket, json);
-    } else if (command == "register") {
-        response = handleRegisterCommand(json);
-    } else {
-        response = {"error", "unknown command"};
-    }
-
-    sendResponse(socket, response);
 }
 
 void Server::handleClientDisconnected() {
     const auto socket = qobject_cast<QTcpSocket *>(sender());
     if (!socket) return;
 
+    // check if user was authenticated
+    if (connectedUsers.contains(socket)) {
+        const QString username = connectedUsers[socket];
+        // broadcast leaving
+        broadcastSystemMessage(username + " has left the chat");
+        connectedUsers.remove(socket);
+
+        // send updated user list
+        QJsonObject usersResponse;
+        usersResponse["type"] = "online_users";
+        QJsonArray usersArray;
+        for (const QString &user : getOnlineUsers()) {
+            usersArray.append(user);
+        }
+        usersResponse["users"] = usersArray;
+        broadcastJSON(usersResponse);
+    }
+
     clients.removeOne(socket);
     socket->deleteLater();
     qDebug() << "client disconnected";
 }
 
-Server::CommandResponse Server::handleLoginCommand(QTcpSocket *socket, const QJsonObject &json) {
-    const QString username = json["username"].toString();
-    const QString password = json["password"].toString();
-
-    if (!Database::instance().checkCredentials(username, password)) {
-        return {"error", "invalid login or password"};
-    }
-
-    if (isUserOnline(username)) {
-        return {"error", "user already online"};
-    }
-
-    connectedUsers[socket] = username;
-    qDebug() << "user connected: " << username;
-    return {"ok", "success"};
+void Server::sendResponse(QTcpSocket *socket, const QJsonObject &jsonResponse) {
+    qDebug() << "sending response: " << jsonResponse;
+    socket->write(QJsonDocument(jsonResponse).toJson(QJsonDocument::Compact) + "\n");
+    socket->flush();
 }
 
-Server::CommandResponse Server::handleRegisterCommand(const QJsonObject &json) {
-    const QString username = json["username"].toString();
-    const QString password = json["password"].toString();
-
-    if (Database::instance().registerUser(username, password)) {
-        qDebug() << "user registered";
-        return {"ok", "success"};
-    }
-
-    return {"error", "unsuccessful request"};
-}
-
-
-void Server::sendResponse(QTcpSocket *socket, const CommandResponse &response) {
+void Server::sendCommandResponse(QTcpSocket *socket, const CommandResponse &response) {
     QJsonObject jsonResponse;
     jsonResponse["status"] = response.status;
     jsonResponse["message"] = response.message;
-    socket->write(QJsonDocument(jsonResponse).toJson(QJsonDocument::Compact));
+    sendResponse(socket, jsonResponse);
 }
 
 bool Server::isUserOnline(const QString &username) const {
     return connectedUsers.values().contains(username);
+}
+
+void Server::addConnectedUser(QTcpSocket *socket, const QString &username) {
+    connectedUsers[socket] = username;
+}
+
+QString Server::getUserBySocket(QTcpSocket *socket) const {
+    return connectedUsers.value(socket, QString());
+}
+
+void Server::broadcastJSON(const QJsonObject &json) {
+    const QByteArray data = QJsonDocument(json).toJson(QJsonDocument::Compact) + "\n";
+    for (QTcpSocket *client: clients) {
+        if (connectedUsers.contains(client)) {
+            client->write(data);
+            client->flush();
+        }
+    }
+}
+
+void Server::broadcastMessage(const QString &sender, const QString &message) {
+    QJsonObject jsonMessage;
+    jsonMessage["type"] = "message";
+    jsonMessage["sender"] = sender;
+    jsonMessage["content"] = message;
+    jsonMessage["timestamp"] = QDateTime::currentDateTime().toString(Qt::ISODate);
+    broadcastJSON(jsonMessage);
+}
+
+void Server::broadcastSystemMessage(const QString &message) {
+    QJsonObject jsonMessage;
+    jsonMessage["type"] = "system";
+    jsonMessage["content"] = message;
+    jsonMessage["timestamp"] = QDateTime::currentDateTime().toString(Qt::ISODate);
+    broadcastJSON(jsonMessage);
+}
+
+QStringList Server::getOnlineUsers() const {
+    QStringList users = connectedUsers.values();
+    users.sort();
+    return users;
 }
