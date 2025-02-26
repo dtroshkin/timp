@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.0.16">
+  <diagram name="Страница — 1" id="p7epkyGtg71P2xyCMLPc">
+    <mxGraphModel grid="0" page="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="gtzc71lp29JqDAPTRixB-5" value="Dialog" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=default;fontSize=13;rounded=1;swimlaneLine=0;perimeterSpacing=1;" vertex="1" parent="1">
+          <mxGeometry x="-322" y="81" width="343" height="431" as="geometry" />
+        </mxCell>
+        <mxCell id="gtzc71lp29JqDAPTRixB-6" value="- ui:&amp;nbsp;Ui::Dialog *&lt;div&gt;- networkManager:&amp;nbsp;NetworkManager *&lt;/div&gt;" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=13;rounded=0;swimlaneLine=0;" vertex="1" parent="gtzc71lp29JqDAPTRixB-5">
+          <mxGeometry y="26" width="343" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="gtzc71lp29JqDAPTRixB-8" value="+ explicit Dialog(QMainWindow *parent = nullptr, NetworkManager *networkManager = nullptr)&lt;div&gt;+ ~Dialof()&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- onSendButtonClicked(): void&lt;/div&gt;&lt;div&gt;-&amp;nbsp;onMessageEditReturnPressed(): void&lt;/div&gt;&lt;div&gt;-&amp;nbsp;onMessageReceived(const QString &amp;amp;sender, const QString &amp;amp;content, const QString &amp;amp;timestamp): void&lt;/div&gt;&lt;div&gt;-&amp;nbsp;onSystemMessageReceived(const QString &amp;amp;content, const QString &amp;amp;timestamp): void&lt;/div&gt;&lt;div&gt;-&amp;nbsp;onHistoryReceived(const QJsonArray &amp;amp;messages): void&lt;/div&gt;&lt;div&gt;-&amp;nbsp;onOnlineUsersReceived(const QStringList &amp;amp;users): void&lt;/div&gt;&lt;div&gt;-&amp;nbsp;onMessageSendError(const QString &amp;amp;error): void&lt;/div&gt;&lt;div&gt;-&amp;nbsp;onConnectionError(const QString &amp;amp;error): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;-&amp;nbsp;displayMessage(const QString &amp;amp;sender, const QString &amp;amp;content, const QString &amp;amp;timestamp): void&lt;/div&gt;&lt;div&gt;-&amp;nbsp;displaySystemMessage(const QString &amp;amp;content, const QString &amp;amp;timestamp): void&lt;/div&gt;&lt;div&gt;-&amp;nbsp;updateOnlineUsers(const QStringList &amp;amp;users): void&lt;/div&gt;&lt;div&gt;-&amp;nbsp;formatTimestamp(const QString &amp;amp;isoTimestamp):&amp;nbsp;QString&lt;/div&gt;&lt;div&gt;-&amp;nbsp;requestInitialData(): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=13;rounded=1;swimlaneLine=0;glass=0;" vertex="1" parent="gtzc71lp29JqDAPTRixB-5">
+          <mxGeometry y="68" width="343" height="363" as="geometry" />
+        </mxCell>
+        <mxCell id="gtzc71lp29JqDAPTRixB-9" value="EmojiConverter" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=27;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="608.5" y="275.5" width="286" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="gtzc71lp29JqDAPTRixB-12" value="+ static convertEmojis(const QString&amp;amp; text): QString&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;-&amp;nbsp;static&amp;nbsp;initEmojiMap():&amp;nbsp;QHash&amp;lt;QString, QString&amp;gt;&lt;/div&gt;&lt;div&gt;-&amp;nbsp;static&amp;nbsp;getEmojiMap():&amp;nbsp;const QHash&amp;lt;QString, QString&amp;gt;&amp;amp;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="gtzc71lp29JqDAPTRixB-9">
+          <mxGeometry y="27" width="286" height="83" as="geometry" />
+        </mxCell>
+        <mxCell id="gtzc71lp29JqDAPTRixB-13" value="LoginWindow" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="-286" y="539" width="290" height="298" as="geometry" />
+        </mxCell>
+        <mxCell id="gtzc71lp29JqDAPTRixB-14" value="&lt;span style=&quot;font-size: 13px;&quot;&gt;- ui:&amp;nbsp;Ui::Dialog *&lt;/span&gt;&lt;div style=&quot;font-size: 13px;&quot;&gt;- networkManager:&amp;nbsp;NetworkManager *&lt;/div&gt;&lt;div style=&quot;font-size: 13px;&quot;&gt;-&amp;nbsp;chatDialog:&amp;nbsp;Dialog *&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="gtzc71lp29JqDAPTRixB-13">
+          <mxGeometry y="26" width="290" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="gtzc71lp29JqDAPTRixB-15" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;rounded=1;" vertex="1" parent="gtzc71lp29JqDAPTRixB-13">
+          <mxGeometry y="80" width="290" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="gtzc71lp29JqDAPTRixB-16" value="&lt;div&gt;+ explicit LoginWindow(QWidget *parent = nullptr)&lt;/div&gt;&lt;div&gt;+ ~LoginWindow()&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;-&amp;nbsp;onLoginClicked(): void&lt;/div&gt;&lt;div&gt;-&amp;nbsp;onRegisterClicked(): void&lt;/div&gt;&lt;div&gt;-&amp;nbsp;onConnectClicked(): void&lt;/div&gt;&lt;div&gt;-&amp;nbsp;onLoginSuccess(const QString &amp;amp;message):void&lt;/div&gt;&lt;div&gt;-&amp;nbsp;onLoginError(const QString &amp;amp;error): void&lt;/div&gt;&lt;div&gt;-&amp;nbsp;onRegisterSuccess(const QString &amp;amp;message): void&lt;/div&gt;&lt;div&gt;- onRegisterError(const QString &amp;amp;error)&lt;/div&gt;&lt;div&gt;-&amp;nbsp;onConnectionError(const QString &amp;amp;error): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;-&amp;nbsp;validateInput(): bool&lt;/div&gt;&lt;div&gt;-&amp;nbsp;openChatDialog(): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="gtzc71lp29JqDAPTRixB-13">
+          <mxGeometry y="88" width="290" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="gtzc71lp29JqDAPTRixB-17" value="MainWindow" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="125" y="93" width="229" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="gtzc71lp29JqDAPTRixB-20" value="+ MainWindow(QWidget *parent = nullptr)&lt;div&gt;+&amp;nbsp;~MainWindow()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="gtzc71lp29JqDAPTRixB-17">
+          <mxGeometry y="26" width="229" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="gtzc71lp29JqDAPTRixB-21" value="MessageFormatter" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="453" width="323" height="112" as="geometry" />
+        </mxCell>
+        <mxCell id="gtzc71lp29JqDAPTRixB-24" value="+&amp;nbsp;static&amp;nbsp;formatMessage(const QString&amp;amp; message): QString&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;-&amp;nbsp;processMarkdown(const QString&amp;amp; text):&amp;nbsp;QString&lt;/div&gt;&lt;div&gt;-&amp;nbsp;processItalics(const QString&amp;amp; text):&amp;nbsp;QString&lt;/div&gt;&lt;div&gt;-&amp;nbsp;processBold(const QString&amp;amp; text):&amp;nbsp;QString&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="gtzc71lp29JqDAPTRixB-21">
+          <mxGeometry y="26" width="323" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="gtzc71lp29JqDAPTRixB-26" value="NetworkManager" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="113" y="232" width="456" height="529" as="geometry" />
+        </mxCell>
+        <mxCell id="gtzc71lp29JqDAPTRixB-27" value="-&amp;nbsp;socket:&amp;nbsp;QTcpSocket*" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="gtzc71lp29JqDAPTRixB-26">
+          <mxGeometry y="26" width="456" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="gtzc71lp29JqDAPTRixB-28" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;rounded=1;" vertex="1" parent="gtzc71lp29JqDAPTRixB-26">
+          <mxGeometry y="52" width="456" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="gtzc71lp29JqDAPTRixB-29" value="+&amp;nbsp;explicit NetworkManager(QObject *parent = nullptr)&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;+&amp;nbsp;connectToServer(const QString&amp;amp; host, quint16 port): void&lt;/div&gt;&lt;div&gt;+&amp;nbsp;sendLoginRequest(const QString&amp;amp; username, const QString&amp;amp; password): void&lt;/div&gt;&lt;div&gt;+&amp;nbsp;sendRegisterRequest(const QString&amp;amp; username, const QString&amp;amp; password): void&lt;/div&gt;&lt;div&gt;+&amp;nbsp;sendMessage(const QString&amp;amp; message): void&lt;/div&gt;&lt;div&gt;+&amp;nbsp;requestMessageHistory(int limit = 50): void&lt;/div&gt;&lt;div&gt;+&amp;nbsp;requestOnlineUsers(): void&lt;/div&gt;&lt;div&gt;+&amp;nbsp;isConnected(): const bool&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;+ connectionError(const QString&amp;amp; error): void&lt;/div&gt;&lt;div&gt;+ loginSuccess(const QString&amp;amp; message): void&lt;/div&gt;&lt;div&gt;+ loginError(const QString&amp;amp; error): void&lt;/div&gt;&lt;div&gt;+ registerSuccess(const QString&amp;amp; message): void&lt;/div&gt;&lt;div&gt;+ registerError(const QString&amp;amp; error): void&lt;/div&gt;&lt;div&gt;+ connected(): void&lt;/div&gt;&lt;div&gt;+ messageReceived(const QString&amp;amp; sender, const QString&amp;amp; content, const QString&amp;amp; timestamp): void&lt;/div&gt;&lt;div&gt;+ systemMessageReceived(const QString&amp;amp; content, const QString&amp;amp; timestamp): void&lt;/div&gt;&lt;div&gt;+ historyReceived(const QJsonArray&amp;amp; messages): void&lt;/div&gt;&lt;div&gt;+ onlineUsersReceived(const QStringList&amp;amp; users): void&lt;/div&gt;&lt;div&gt;+ messageSendError(const QString&amp;amp; error): void&lt;br&gt;&lt;br&gt;&lt;div&gt;- handleConnected(): void&lt;/div&gt;&lt;div&gt;- handleDisconnected(): void&lt;/div&gt;&lt;div&gt;- handleError(QAbstractSocket::SocketError error): void&lt;/div&gt;&lt;div&gt;- handleReadyRead(): void&lt;br&gt;&lt;br&gt;&lt;div&gt;- sendJsonRequest(const QJsonObject&amp;amp; request): void&lt;/div&gt;&lt;div&gt;- processResponse(const QJsonDocument&amp;amp; response): void&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="gtzc71lp29JqDAPTRixB-26">
+          <mxGeometry y="60" width="456" height="469" as="geometry" />
+        </mxCell>
+        <mxCell id="XvbfQgQVwP71XrzL-Pd_-1" value="" style="endArrow=none;html=1;rounded=0;exitX=1.003;exitY=0.342;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.003;entryY=0.641;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="gtzc71lp29JqDAPTRixB-8" target="gtzc71lp29JqDAPTRixB-27">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="373" y="505" as="sourcePoint" />
+            <mxPoint x="103" y="281" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XvbfQgQVwP71XrzL-Pd_-2" value="" style="endArrow=none;html=1;rounded=0;entryX=0.494;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.459;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="gtzc71lp29JqDAPTRixB-13" target="gtzc71lp29JqDAPTRixB-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="252" y="556" as="sourcePoint" />
+            <mxPoint x="302" y="506" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XvbfQgQVwP71XrzL-Pd_-3" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.609;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.005;entryY=0.22;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="gtzc71lp29JqDAPTRixB-29" target="gtzc71lp29JqDAPTRixB-14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-84" y="541" as="sourcePoint" />
+            <mxPoint x="-34" y="491" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
