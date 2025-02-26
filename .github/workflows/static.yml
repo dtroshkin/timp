@@ -40,6 +40,9 @@ jobs:
 
       - name: Install Graphviz
         run: sudo apt install graphviz
+
+      - name: Create file
+        run: doxygen [-s] -g [configName]
         
       # Create documentation   
       - name: Create documentation     
