@@ -1,0 +1,26 @@
+var class_chat_controller =
+[
+    [ "ChatController", "class_chat_controller.html#a93c24919686a97e3e6184f0ea6f70640", null ],
+    [ "~ChatController", "class_chat_controller.html#adc6b7a21ada76423568c93f631bb3eeb", null ],
+    [ "connectionEstablished", "class_chat_controller.html#a76f4f4282306d210f141eb928a357eca", null ],
+    [ "connectionFailed", "class_chat_controller.html#a73cf41a57256deda59215ee1ec322656", null ],
+    [ "connectToServer", "class_chat_controller.html#a56b13827d37a9207c7cd88dc220189f9", null ],
+    [ "getCurrentUser", "class_chat_controller.html#ac08b7163203198b1b200b9d1a6b6d8eb", null ],
+    [ "historyLoaded", "class_chat_controller.html#a401dec14f69a8367b3ef6c1e812caf5d", null ],
+    [ "isConnected", "class_chat_controller.html#a4ce0386fe23df0c694226d990d407638", null ],
+    [ "isLoggedIn", "class_chat_controller.html#a703ef4d22a3d58f8433b29bee6fb432e", null ],
+    [ "login", "class_chat_controller.html#aff10d133c70c847109cc9d1a0d5273ca", null ],
+    [ "loginFailed", "class_chat_controller.html#a69a2e06e6bb467840ec9fee44702b4fa", null ],
+    [ "loginSuccessful", "class_chat_controller.html#ad25181b0f02f7a41ec274962b82781ed", null ],
+    [ "messageFailedToSend", "class_chat_controller.html#a6991f2ef247cd07ae753abe5e161d643", null ],
+    [ "messageReceived", "class_chat_controller.html#aa29746f349a397a73f1326ba3c3d0589", null ],
+    [ "messageSent", "class_chat_controller.html#a2eccc9318799253f7d494b5175993007", null ],
+    [ "onlineUsersUpdated", "class_chat_controller.html#a30f104319a691a54cdae4993e716661a", null ],
+    [ "registerUser", "class_chat_controller.html#ab89776fded01d6327dd68f54eddbcc12", null ],
+    [ "registrationFailed", "class_chat_controller.html#ae92cfa95e134d466c20e151dd27e681e", null ],
+    [ "registrationSuccessful", "class_chat_controller.html#a6afa9e662d26a5a0823eb96a84428de2", null ],
+    [ "requestHistory", "class_chat_controller.html#adea07ff2af41ec9e20db9f9e12d886c2", null ],
+    [ "requestOnlineUsers", "class_chat_controller.html#a506a6fe75516fb7ccc52eae506b03e3d", null ],
+    [ "sendMessage", "class_chat_controller.html#a9c007e4de7d02c83987886fd4ab624e3", null ],
+    [ "systemMessageReceived", "class_chat_controller.html#a7384e320e7ca44ef191356be94401774", null ]
+];
